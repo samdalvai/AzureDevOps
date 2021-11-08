@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  app:
+    build: ./app
+    image: samdalvai/concerthub_app:1.0
+    depends_on:
+      - mysql
+    ports:
+      - 8080:80
+    restart: on-failure
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: rock
+      MYSQL_DB: concertDB
+
+  mysql:
+    build: ./db
+    image: samdalvai/concerthub_mysql:1.0
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: rock
+      MYSQL_DATABASE: concertDB
+
+  python:
+    build: ./python
+    image: samdalvai/concerthub_python:1.0
+    depends_on:
+      - mysql
+    restart: on-failure
+    entrypoint: python -u python/scheduledjobs.py
+
+volumes:
+  mysql-data:

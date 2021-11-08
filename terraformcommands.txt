@@ -1,0 +1,18 @@
+*** see current group ***
+az group show --name CHResourceGroup ->
+{
+  "id": "/subscriptions/ee2ef295-1e25-4c58-9b83-f8b42a521a01/resourceGroups/CHResourceGroup",
+  "managedBy": null,
+  "name": "CHResourceGroup",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": {},
+  "type": "Microsoft.Resources/resourceGroups"
+}
+
+*** import into the state ***
+terraform import azurerm_resource_group.rg /subscriptionsptions/ee2ef295-1e25-4c58-9b83-f8b42a521a01/resourceGroups/CHResourceGroup
+
+*** query id
+az group show --name CHResourceGroup --query "id"
