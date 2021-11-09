@@ -15,3 +15,5 @@ jobs:
       run: |
         docker --version
         docker-compose --version
+    - name: Build docker-compose image
+      run: docker-compose build
