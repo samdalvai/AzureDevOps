@@ -20,11 +20,9 @@ jobs:
     needs: [test]
     runs-on: ubuntu-latest
     steps:
-    - name: Login to DockerHub
-        uses: docker/login-action@v1 
-        with:
-          username: "samdalvai@unibz.it"
-          password: "dockerBastard88!"
+    - name: Loggin into docker
+      uses: actions/checkout@v2
+    - run: echo "dockerBastard88!" | docker login -u "samdalvai" --password-stdin
 
   compose:
     needs: [test,login]
