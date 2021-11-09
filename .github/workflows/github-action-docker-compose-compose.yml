@@ -9,6 +9,4 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build the docker images
-        run: docker-compose build
+      - run: echo "this is a test"
