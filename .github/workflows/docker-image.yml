@@ -31,3 +31,11 @@ jobs:
     - name: Compose docker images
       uses: actions/checkout@v2
     - run: docker-compose build
+  
+  push:
+    needs: [test,login,compose]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Push docker images to DockerHub
+      uses: actions/checkout@v2
+    - run: docker-compose push
