@@ -7,6 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -14,7 +15,17 @@ jobs:
       uses: actions/checkout@v2
     - run: docker --version
     - run: docker-compose --version
+
+  login:
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Loggin into docker
+      uses: actions/checkout@v2
+    - run: echo "dockerBastard88!" | docker login -u "samdalvai@unibz.it" --password-stdin
+
   compose:
+    needs: [test,login]
     runs-on: ubuntu-latest
     steps:
     - name: Compose docker images
