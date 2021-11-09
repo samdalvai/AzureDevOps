@@ -11,10 +11,11 @@ jobs:
   update-docker-images:
     runs-on: ubuntu-latest
     steps:
+    - name: Check out repository code
+      uses: actions/checkout@v2
     - name: Test docker version
       run: |
         docker --version
         docker-compose --version
     - name: Build docker-compose image
-      uses: actions/checkout@v2
-      run: ls
+      run: docker-compose build
