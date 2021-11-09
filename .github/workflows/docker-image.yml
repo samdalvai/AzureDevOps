@@ -14,3 +14,9 @@ jobs:
       uses: actions/checkout@v2
     - run: docker --version
     - run: docker-compose --version
+  compose:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Compose docker images
+      uses: actions/checkout@v2
+    - run: docker-compose build
