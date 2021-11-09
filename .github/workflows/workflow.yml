@@ -8,10 +8,10 @@ on:
 
 jobs:
 
-  update docker images:
+  update-docker-images:
     runs-on: ubuntu-latest
     steps:
-    - name: Test dockerversion
+    - name: Test docker version
       run: |
         docker --version
         docker-compose --version
