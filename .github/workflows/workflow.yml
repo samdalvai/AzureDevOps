@@ -11,7 +11,7 @@ jobs:
   update docker images:
     runs-on: ubuntu-latest
     steps:
-    - name: Test docker version
+    - name: Test dockerversion
       run: |
         docker --version
         docker-compose --version
