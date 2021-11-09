@@ -8,7 +8,6 @@ on:
 jobs:
   buid:
     steps:
-      - uses: actions/checkout@v2
       - name: Build the docker images
       - run: echo "this is a test"
       - run: docker-compose build
