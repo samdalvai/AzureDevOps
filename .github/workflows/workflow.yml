@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  docker-compose build and push:
+  update docker images:
     runs-on: ubuntu-latest
     steps:
     - name: Test docker version
