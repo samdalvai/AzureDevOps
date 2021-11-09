@@ -12,5 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Test docker version
-    - run: docker --version
-    - run: docker-compose --version
+      run: docker --version
+      run: docker-compose --version
