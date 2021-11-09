@@ -1,7 +1,7 @@
 name: GitHub Actions Demo
 on:
   push:
-    branches: [ main ]
+    branches: [ actions-test ]
   pull_request:
     branches: [ main ]
 
