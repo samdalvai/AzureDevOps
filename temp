@@ -1,0 +1,15 @@
+  login:
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Loggin into docker
+      uses: actions/checkout@v2
+    - run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
+  compose:
+    needs: [test,login]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Compose docker images
+      uses: actions/checkout@v2
+    - run: docker-compose build
