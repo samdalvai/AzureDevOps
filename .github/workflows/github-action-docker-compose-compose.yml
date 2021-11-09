@@ -1,0 +1,12 @@
+name: GitHub Action Docker Compose
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  buid:
+    - uses: actions/checkout@v2
+      - name: Build the docker images
+      - run: docker-compose build
