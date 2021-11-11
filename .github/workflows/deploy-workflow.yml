@@ -72,14 +72,14 @@ jobs:
       id: validate
       run: terraform validate -no-color
 
-    # generates a Terraform plan
+    # Generates a Terraform plan
     - name: Terraform Plan
       id: plan
       if: github.event_name == 'push'
       run: terraform plan -no-color
       continue-on-error: true
 
-    # adds a comment to the pull request with the results of the format, init and plan steps, only works
+    # Adds a comment to the pull request with the results of the format, init and plan steps, only works
     # for a pull request
     - name: Update Pull Request
       uses: actions/github-script@0.9.0
@@ -111,10 +111,17 @@ jobs:
             body: output
           })
 
-    # make the workflow fail if the plan is not created correctly     
+    # Make the workflow fail if the plan is not created correctly     
     - name: Terraform Plan Status
       if: steps.plan.outcome == 'failure'
       run: exit 1
+
+    # Applies the configuration. This step will only run when a commit is pushed to main
+    # this includes successful pull requests
+    - name: Terraform Apply
+      #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      run: terraform apply -auto-approve
+
 
 
 
