@@ -8,6 +8,13 @@ terraform {
   }
 
   required_version = ">= 0.14.9"
+
+  backend "remote" {
+    organization = "concerthub"
+    workspaces {
+      name = "concerthub-workspace"
+    }
+  }
 }
 
 provider "azurerm" {
@@ -30,7 +37,7 @@ module "web_app_container" {
 
   resource_group_name = azurerm_resource_group.rg.name
   plan = {
-    name = var.app_service_plan_name
+    name     = var.app_service_plan_name
     sku_size = "S1"
   }
 

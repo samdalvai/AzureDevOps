@@ -17,5 +17,11 @@ terraform import azurerm_resource_group.rg /subscriptionsptions/ee2ef295-1e25-4c
 *** query id
 az group show --name CHResourceGroup --query "id"
 
+terraform fmt
+
+terraform init
+
+terraform validate
+
 *** apply ***
 terraform apply -auto-approve
