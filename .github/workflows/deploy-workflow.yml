@@ -42,7 +42,7 @@ jobs:
     environment: production
 
     defaults:
-    run:
+      run:
         shell: bash
 
     steps:
