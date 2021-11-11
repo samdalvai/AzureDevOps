@@ -1,9 +1,0 @@
-docker-compose build
-
-docker-compose push
-
-terraform init
-
-terraform validate
-
-terraform apply
