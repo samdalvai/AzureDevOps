@@ -2,7 +2,7 @@ name: CI/CD pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [ feature/terraform-workflow  ]
   pull_request:
     branches: [ main ]
 
