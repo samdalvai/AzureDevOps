@@ -46,7 +46,7 @@ jobs:
   #### on Microsoft Azure by using terraform                        ####
   ######################################################################
   deploy-with-terraform:
-    #needs: update-docker-images
+    needs: update-docker-images
     runs-on: ubuntu-latest
     environment: production
 
