@@ -38,6 +38,7 @@ jobs:
       run: docker-compose push
 
   deploy-with-terraform:
+    needs: update-docker-images
     runs-on: ubuntu-latest
     environment: production
 
