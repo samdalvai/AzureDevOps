@@ -1,7 +1,8 @@
 # Project for the System Engineering course 2021/22
 
 * [Application description](#application-description)
-* [Instructions](#instructions)
+* [Instructions for automatic deployment](#instructions-for-automatic-deployment)
+* [Instructions for manual deployment](#instructions-for-manual-deployment)
 * [Author](#author)
 
 <br>
@@ -12,7 +13,13 @@ This web application....
 
 <br>
 
-# Instructions
+# Instructions for automatic deployment
+
+This project makes use of GitHub Actions in order to run an automatic pipeline for the deployment of the web application to Microsoft Azure.
+
+<br>
+
+# Instructions for manual deployment
 ## Creation of the Docker images
 
 * This application is deployed using three Docker containers, one for the php web application, one for the mysql database and one for the python scheduled jobs.
