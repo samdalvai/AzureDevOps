@@ -59,6 +59,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    # Test that terraform is installed
+    - name: Test terraform version
+      run: terraform -v
+
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
@@ -83,7 +87,7 @@ jobs:
     # Generates a Terraform plan
     - name: Terraform Plan
       id: plan
-      if: github.event_name == 'push'
+      if: github.event_name == 'pull_request'
       run: terraform plan -no-color
       continue-on-error: true
 
@@ -127,7 +131,7 @@ jobs:
     # Applies the configuration. This step will only run when a commit is pushed to main
     # this includes successful pull requests
     - name: Terraform Apply
-      #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
 
 
