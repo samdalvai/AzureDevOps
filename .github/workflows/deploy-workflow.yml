@@ -8,35 +8,43 @@ on:
 
 jobs:
 
-  ##update-docker-images:
-   ## runs-on: ubuntu-latest
-    ##steps:
+  ######################################################################
+  #### This job is responsible for building and pushing the docker  ####
+  #### images to the DockerHub repository                           ####
+  ######################################################################
+  update-docker-images:
+    runs-on: ubuntu-latest
+    steps:
 
     # Copy repository code into the environment
-    ##- name: Check out repository code
-    ##  uses: actions/checkout@v2
+    - name: Check out repository code
+      uses: actions/checkout@v2
 
     # Test that docker and docker-compose are installed
-    ##- name: Test docker version
-    ##  run: |
-    ##    docker --version
-    ##    docker-compose --version
+    - name: Test docker version
+      run: |
+        docker --version
+        docker-compose --version
 
     # Login to presonal DockerHub account
-    ##- name: Login to DockerHub
-    ##  uses: docker/login-action@v1 
-    ##  with:
-    ##    username: ${{ secrets.DOCKERHUB_USERNAME }}
-    ##    password: ${{ secrets.DOCKERHUB_PASSWORD }}
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
     # Build the updated docker-compose image
-    ##- name: Build docker-compose image
-    ##  run: docker-compose build
+    - name: Build docker-compose image
+      run: docker-compose build
 
     # Push new docker images to DockerHub
-    ##- name: Push docker images to DockerHub
-    ##  run: docker-compose push
+    - name: Push docker images to DockerHub
+      run: docker-compose push
 
+  ######################################################################
+  #### This job is responsible for the deployment of the web app    ####
+  #### on Microsoft Azure by using terraform                        ####
+  ######################################################################
   deploy-with-terraform:
     #needs: update-docker-images
     runs-on: ubuntu-latest
