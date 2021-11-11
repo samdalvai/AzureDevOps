@@ -41,11 +41,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
 
-     defaults:
-      run:
+    defaults:
+    run:
         shell: bash
 
-     steps:
+    steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
