@@ -14,8 +14,8 @@ jobs:
   ######################################################################
   update-docker-images:
     runs-on: ubuntu-latest
-    steps:
 
+    steps:
     # Copy repository code into the environment
     - name: Check out repository code
       uses: actions/checkout@v2
@@ -32,6 +32,10 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+    # Build the updated docker-compose image
+    - name: Validate docker-compose image
+      run: docker-compose config
 
     # Build the updated docker-compose image
     - name: Build docker-compose image
