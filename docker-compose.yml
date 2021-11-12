@@ -3,7 +3,10 @@ version: "3.7"
 services:
   app:
     build: ./app
-    image: samdalvai/concerthub_app:1.0
+    image: samdalvai/concerthub_app:1.1
+    # uncomment this line to start a local development environment
+    #volumes:
+     # - ./app:/var/www/html/
     depends_on:
       - mysql
     ports:

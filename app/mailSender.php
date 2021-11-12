@@ -2,7 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once "C:\\xampp\\htdocs\\ConcertHub\\project\\vendor\\autoload.php";
+require_once "/var/www/html/vendor/autoload.php";
 
 $counterForTicket = 100;
 
