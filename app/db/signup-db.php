@@ -9,7 +9,7 @@ if(isset($_POST["submit"])){
 
     require_once "db-connector.php";
     require_once "functions/signup-functions.php";
-    ######require_once "../mailSender.php";
+    require_once "../mailSender.php";
 
     if(emptyInputSignup($name, $email, $username, $pwd, $pwdrepeat) !== false){
         header("location: ../signup.php?error=emptyInput");
@@ -32,7 +32,7 @@ if(isset($_POST["submit"])){
     }
     
     createUser($conn,$name, $email, $username, $pwd);
-    #sendMailToRegistredUser($email,$name);
+    sendMailToRegistredUser($email,$name);
     header("location: ../login.php");
     exit();
    

@@ -18,8 +18,8 @@ $numOfTickets = $_GET['numOfTickets'];
 $totalAmount = $_GET['totalAmount'];
 $email = $_GET['email'];
 
-#require_once "mailSender.php";
-#sendMailToConfirmTicket($email, $firstName, $concertTitle, $concertLocation, $concertDate);
+require_once "mailSender.php";
+sendMailToConfirmTicket($email, $firstName, $concertTitle, $concertLocation, $concertDate);
 ?>
 
 <link rel="stylesheet" href="./styles/login.css">

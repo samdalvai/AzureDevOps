@@ -2,9 +2,14 @@
 
 FROM php:7.2-apache
 
-RUN apt-get update -y && docker-php-ext-install mysqli && apt-get install net-tools
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y git
+RUN docker-php-ext-install mysqli
 
 COPY . /var/www/html/
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+RUN cd /var/www/html/
+RUN composer require phpmailer/phpmailer
 
 EXPOSE 80
 
