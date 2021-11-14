@@ -42,7 +42,7 @@ The user will then be able to print the confirmation and will also receive a con
 
 The web application is deployed as a Docker multi-container app on [Microsoft Azure](https://azure.microsoft.com/en-us/). There are a total of three containers:
 
-* **concerthub_app** container: a `php:7.2-apache` docker image which serves as the web server for the php application. The docker image has been personalized by adding additional components, like the `mysqli` libraries and `composer`, which is used to add a mailing functionality to the we application.
+* **concerthub_app** container: a `php:7.2-apache` docker image which serves as the web server for the php application. The docker image has been personalized by adding additional components, like the `mysqli` libraries and `composer`, which is used to add a mailing functionality to the web application.
 * **concerthub_mysql** container: a `mysql:5.7` docker image with an sql schema that is loaded on startup. The loaded schema will add a concert database with tables for concerts, categories, perfomers and all the tables needed from the web application.
 * **concerthub_python** container: a `python:3` docker image with additional components such as `mysqlclient` and `mysql-connector-python` for the connection to the `mysql` container. On startup this container will load a python script that will run a scheduled job every 10 minutes. The only job that is run consists in queryng the [SeatGeek API](https://platform.seatgeek.com/) and loading the data on the `mysql` database.
 
@@ -145,7 +145,7 @@ This application is deployed using [Microsoft Azure](https://azure.microsoft.com
 * First of all you need to install the [Terraform client](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/azure-get-started) on your machine.
 * For the next step you need to have completed the first 3 steps of the instructions described in the previous paragraph: [Deployment with az cli](#deployment-on-microsoft-azure-with-az-cli)
 * You can set the name of the resource group, the location, the app service plan and the app service in the `variables.tf` file.
-* From the `root/` folder of the project run `terraform initi` to initialize the provider plugins.
+* From the `root/` folder of the project run `terraform init` to initialize the provider plugins.
 * Run `terraform validate` to validate the `main.tf` file.
 * Run `terraform apply` to build the infrastructure, type `yes` when requested to do so.
 * After some minutes the infrastructure on Azure will be online and you will be able to access the application as decribed in the last steps of the previous paragraph:  [Deployment with az cli](#deployment-on-microsoft-azure-with-az-cli)
