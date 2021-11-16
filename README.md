@@ -4,6 +4,7 @@
 * [How the application is deployed](#how-the-application-is-deployed)
 * [Description of the pipeline for CI/CD](#description-of-the-pipeline-for-CI/CD)
     * [Pipeline stages](#pipeline-stages)
+    * [Testing of the PHP application](#testing-of-the-php-application)
     * [Update of the docker images](#update-of-the-docker-images)
     * [Deployment with terraform](#deployment-with-terraform)
     * [Experience with GitLab CI/CD](#instructions-for-manual-deployment)
@@ -68,7 +69,7 @@ The pipeline for the continuous integration and development of this application 
 <img src="report/images/workflow.png" alt="drawing" width="500"/>
 </p>
 
-## Test of the php application
+## Testing of the PHP application
 
 In this stage the PHP application is tested by using the testing framework [PHPunit 9.0](https://phpunit.de/getting-started/phpunit-9.html), the dependencies are managed through composer. This stage consists in 5 jobs that are executed one after the other.
 
