@@ -46,7 +46,6 @@ function validateExpirationDate($year, $month){
         return true;
     else
         return ($month >= date('m')); // same year as now
-
 }
 
 function checkSeats($conn,$concertId,$numOfTickets){
