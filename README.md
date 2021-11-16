@@ -62,11 +62,21 @@ This project makes use of GitHub Actions in order to run an automatic pipeline f
 
 ## Pipeline stages
 
-The pipeline for the continuous integration and development of this application consists in two main stages, namely the update of the docker images and the deployment with terraform. The second stage cannot begin until the first one has terminated successfully.
+The pipeline for the continuous integration and development of this application consists in three main stages, namely the testing of the php application, the update of the docker images and the deployment with terraform. Each is stage is dependent on the success of the previous one, thus it can not be executed in case of a failure of a previous stage.
 
 <p align="center">
 <img src="report/images/workflow.png" alt="drawing" width="500"/>
 </p>
+
+## Test of the php application
+
+In this stage the PHP application is tested by using the testing framework [PHPunit 9.0](https://phpunit.de/getting-started/phpunit-9.html), the dependencies are managed through composer. This stage consists in 5 jobs that are executed one after the other.
+
+<p align="center">
+<img src="report/images/test-stage.png" alt="drawing" width="500"/>
+</p>
+
+The first job copies the content of the repository, subsequently the composer version is tested in order to check if it is available to the runner. Next the dependencies for the PHPUnit framework are installed, and the composer configuration is validated. The last job performs the actual tests. If there is a failure in a test, the next stages in the pipeline are not executed.
 
 ## Update of the docker images
 
@@ -76,7 +86,7 @@ In this stage the docker images are built and pushed to a repository on [DockerH
 <img src="report/images/docker-stage.png" alt="drawing" width="500"/>
 </p>
 
-The first job checks the repository code out in order to make it available to the runner, after that the runner tests the current docker and docker-compose version. Subsequently the runner logs into DockerHub with a `DOCKERHUB_USERNAME` and `DOCKERHUB_PASSWORD` which are the private access credential for the DockerHub repository and are stored as a secret in GitHub, see [GitHub secrets](https://github.com/Azure/actions-workflow-samples/blob/master/assets/create-secrets-for-GitHub-workflows.md) for further details. At this point the docker-compose image is built and then pushed to the DockerHub repository.
+The first job checks the repository code out in order to make it available to the runner, after that the runner tests the current docker and docker-compose version. Subsequently, the runner logs into DockerHub with a `DOCKERHUB_USERNAME` and `DOCKERHUB_PASSWORD` which are the private access credential for the DockerHub repository and are stored as a secret in GitHub, see [GitHub secrets](https://github.com/Azure/actions-workflow-samples/blob/master/assets/create-secrets-for-GitHub-workflows.md) for further details. At this point the docker-compose image is built and then pushed to the DockerHub repository.
 
 ## Deployment with terraform
 
