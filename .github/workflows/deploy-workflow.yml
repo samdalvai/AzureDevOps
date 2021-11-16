@@ -24,8 +24,10 @@ jobs:
 
       # Check composer version
       - name: Check that composer is installed
-        run: composer --version
-
+        run: |
+          composer --version
+          ls
+          
       # Install dependencies for testing
       - name: Install PHPUnit dependencies
         run: |
