@@ -29,11 +29,13 @@ jobs:
         run: |
           cd app
           composer require --dev phpunit/phpunit
+          ls
 
       # Run the unit tests
       - name: Test php application
         run: |
           cd app
+          ls
           ./vendor/bin/phpunit test
 
   ######################################################################
