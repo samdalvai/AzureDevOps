@@ -30,6 +30,10 @@ jobs:
           cd app
           ls
 
+      # Install dependencies for testing
+      - name: Install PHPUnit dependencies
+        run: composer require --dev phpunit/phpunit
+
 
   ######################################################################
   #### This job is responsible for building and pushing the docker  ####
