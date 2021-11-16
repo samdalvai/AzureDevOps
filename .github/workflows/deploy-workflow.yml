@@ -32,7 +32,9 @@ jobs:
 
       # Run the unit tests
       - name: Test php application
-        run: ./vendor/bin/phpunit tests
+        run: |
+          cd app
+          ./vendor/bin/phpunit tests
 
   ######################################################################
   #### This job is responsible for building and pushing the docker  ####
