@@ -13,7 +13,21 @@ final class BookingFunctionsTest extends TestCase
     }
 
     /** @test **/
-    public function validateNameTest(): void
+    public function emptyInputWithNonEmptyInputTest(): void
+    {   
+        $input = "testinput";
+        $this->assertEquals(false,emptyInput($input));
+    }
+
+    /** @test **/
+    public function validateNameWithValidNameTest(): void
+    {   
+        $input = "Name Surname";
+        $this->assertEquals(true,validateName($input));
+    }
+
+    /** @test **/
+    public function validateNameWithInvalidNameTest(): void
     {   
         $input = "MyName0Hello";
         $this->assertEquals(false,validateName($input));
@@ -90,13 +104,5 @@ final class BookingFunctionsTest extends TestCase
         $month = date('m');
         $this->assertEquals(false,validateExpirationDate($year, $month));
     }
-
-    /** @test **/
-    public function myTest(): void
-    {   
-        $input = "";
-        $this->assertEquals(false,true);
-    }
-
 
 }
