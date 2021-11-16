@@ -24,11 +24,11 @@ jobs:
       - name: Check that composer is installed
         run: composer --version
 
-        # Install dependencies for testing
+        # Install required dependencies for testing
       - name: Install PHPUnit dependencies
         run: |
           cd app
-          composer require --dev phpunit/phpunit
+          composer update
       
       # Validate composer configuration
       - name: Validate composer configuration

@@ -8,5 +8,7 @@
             "email": "samdalvai@unibz.it"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    }
 }
