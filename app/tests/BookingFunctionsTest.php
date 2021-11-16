@@ -95,7 +95,7 @@ final class BookingFunctionsTest extends TestCase
     public function myTest(): void
     {   
         $input = "";
-        $this->assertEquals(true,true);
+        $this->assertEquals(false,true);
     }
 
 
