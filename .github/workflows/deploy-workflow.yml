@@ -19,6 +19,8 @@ jobs:
       # Copy repository code into the environment
       - name: Check out repository code
         uses: actions/checkout@v2
+        with:
+          files: app/
 
       # Check composer version
       - name: Check that composer is installed
