@@ -23,14 +23,8 @@ jobs:
       # Check composer version
       - name: Check that composer is installed
         run: composer --version
-      
-      # Initialize composer
-      - name: Initialize composer
-        run : |
-          cd app
-          composer init
 
-      # Install dependencies for testing
+        # Install dependencies for testing
       - name: Install PHPUnit dependencies
         run: |
           cd app
