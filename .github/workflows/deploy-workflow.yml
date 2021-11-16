@@ -29,14 +29,10 @@ jobs:
         run: |
           cd app
           composer require --dev phpunit/phpunit
-          ls
 
       # Run the unit tests
       - name: Test php application
-        run: |
-          cd app
-          ls
-          ./vendor/bin/phpunit test
+        run: ./vendor/bin/phpunit tests
 
   ######################################################################
   #### This job is responsible for building and pushing the docker  ####
