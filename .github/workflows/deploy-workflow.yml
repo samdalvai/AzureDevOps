@@ -19,15 +19,14 @@ jobs:
       # Copy repository code into the environment
       - name: Check out repository code
         uses: actions/checkout@v2
-        with:
-          files: app/
+        path: app/
 
       # Check composer version
       - name: Check that composer is installed
         run: |
           composer --version
           ls
-          
+
       # Install dependencies for testing
       - name: Install PHPUnit dependencies
         run: |
