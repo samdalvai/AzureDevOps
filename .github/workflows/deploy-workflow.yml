@@ -28,6 +28,7 @@ jobs:
   #### images to the DockerHub repository                           ####
   ######################################################################
   update-docker-images:
+    needs: test-php-app
     runs-on: ubuntu-latest
 
     steps:
