@@ -16,7 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      # Copy repository code into the environment
+      - name: Check out repository code
       - uses: actions/checkout@v2
+      
+      # Installs composer
+      - name: Require composer
       - uses: php-actions/composer@v6
 
       - name: Check that composer is installed
