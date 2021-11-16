@@ -1,0 +1,14 @@
+{
+    "name": "sam/app",
+    "description": "concertHubApp",
+    "license": "0BSD",
+    "authors": [
+        {
+            "name": "Samuel Dalvai",
+            "email": "samdalvai@unibz.it"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    }
+}

@@ -5,7 +5,6 @@ Thumbs.db
 composer.phar
 vendor/
 /.vscode
-composer.json
 composer.lock
 __pycache__
 

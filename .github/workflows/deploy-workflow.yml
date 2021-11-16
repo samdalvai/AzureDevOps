@@ -2,17 +2,51 @@ name: CI/CD pipeline
 
 on:
   push:
-    branches: [ main  ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
 jobs:
 
   ######################################################################
+  #### This job is responsible for testing the php application      ####
+  ######################################################################
+  test-php-app:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Copy repository code into the environment
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      # Check composer version
+      - name: Check that composer is installed
+        run: composer --version
+
+        # Install required dependencies for testing
+      - name: Install PHPUnit dependencies
+        run: |
+          cd app
+          composer update
+      
+      # Validate composer configuration
+      - name: Validate composer configuration
+        run: |
+          cd app
+          composer validate
+
+      # Run the unit tests
+      - name: Test php application
+        run: |
+          cd app
+          ./vendor/bin/phpunit tests
+
+  ######################################################################
   #### This job is responsible for building and pushing the docker  ####
   #### images to the DockerHub repository                           ####
   ######################################################################
   update-docker-images:
+    needs: test-php-app
     runs-on: ubuntu-latest
 
     steps:
