@@ -34,6 +34,9 @@ jobs:
       - name: Install PHPUnit dependencies
         run: composer require --dev phpunit/phpunit
 
+      # Run the unit tests
+      - name: Test php application
+        run: ./vendor/bin/phpunit test
 
   ######################################################################
   #### This job is responsible for building and pushing the docker  ####
