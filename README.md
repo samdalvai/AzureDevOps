@@ -19,19 +19,19 @@
 The name of the application is ConcertHub, it is a web application for the booking of concert events in the US. The application consists on three main components: a PHP web application, a MySql database and a Python script which populates the database on a regular basis with data extracted from the [SeatGeek API](https://platform.seatgeek.com/). The website consists in a home page where the user can found the top categories, artists and locations for concerts.
 
 <p align="center">
-<img src="images/home.png" alt="drawing" width="450"/>
+<img src="report/images/home.png" alt="drawing" width="450"/>
 </p>
 
 The criteria for being in the "Top" section follows a score system provided by the API. The user can also perform a search for a concert based on some keywords.
 
 <p align="center">
-<img src="images/search.png" alt="drawing" width="450"/>
+<img src="report/images/search.png" alt="drawing" width="450"/>
 </p>
 
 Finally, when the user has found a concert, he can book a ticket.
 
 <p align="center">
-<img src="images/booking.png" alt="drawing" width="450"/>
+<img src="report/images/booking.png" alt="drawing" width="450"/>
 </p>
 
 The user will then be able to print the confirmation and will also receive a confirmation email for the booking. Further functionalities are supported by the web application, for example it is possible to sign in with a personal account and also to browse the concert by category and location.
@@ -65,7 +65,7 @@ This project makes use of GitHub Actions in order to run an automatic pipeline f
 The pipeline for the continuous integration and development of this application consists in two main stages, namely the update of the docker images and the deployment with terraform. The second stage cannot begin until the first one has terminated successfully.
 
 <p align="center">
-<img src="images/workflow.png" alt="drawing" width="500"/>
+<img src="report/images/workflow.png" alt="drawing" width="500"/>
 </p>
 
 ## Update of the docker images
@@ -73,7 +73,7 @@ The pipeline for the continuous integration and development of this application 
 In this stage the docker images are built and pushed to a repository on [DockerHub](https://hub.docker.com/). This stage consists in 6 different jobs that are performed one after the other.
 
 <p align="center">
-<img src="images/docker-stage.png" alt="drawing" width="500"/>
+<img src="report/images/docker-stage.png" alt="drawing" width="500"/>
 </p>
 
 The first job checks the repository code out in order to make it available to the runner, after that the runner tests the current docker and docker-compose version. Subsequently the runner logs into DockerHub with a `DOCKERHUB_USERNAME` and `DOCKERHUB_PASSWORD` which are the private access credential for the DockerHub repository and are stored as a secret in GitHub, see [GitHub secrets](https://github.com/Azure/actions-workflow-samples/blob/master/assets/create-secrets-for-GitHub-workflows.md) for further details. At this point the docker-compose image is built and then pushed to the DockerHub repository.
@@ -83,13 +83,13 @@ The first job checks the repository code out in order to make it available to th
 At this stage the docker images will already be pushed to the DuckerHub registries, thus we can proceed with applying the changes to `Microsoft Azure` by using `Terraform`. This stage consists of 10 jobs, two of which are applied only in case of a GitHub pull request, when a branch is merged with the main one.
 
 <p align="center">
-<img src="images/terraform-stage.png" alt="drawing" width="500"/>
+<img src="report/images/terraform-stage.png" alt="drawing" width="500"/>
 </p>
 
 As the previous stage, the first job checks the repository code out, after that the Terraform version is tested and the runner logs into Terraform by using a `TF_API_TOKEN`, which is provided by Terraform and stored on GitHub as a secret variable, see [Terraform GitHub actions](https://learn.hashicorp.com/tutorials/terraform/github-actions) for further details. The pipeline continues by initializing the backend and downloading the required plugins based on the `main.tf` file, after that the configuration is validated. At this point, if the event that triggered the pipeline was a simple commit, the changes will be applied directly. On the other hand, if the event was a pull request, a new plan will be created and displayed in the information of the pull request, after that the plan will be applied.
 
 <p align="center">
-<img src="images/pull-request.png" alt="drawing" width="500"/>
+<img src="report/images/pull-request.png" alt="drawing" width="500"/>
 </p>
 
 After some minutes the application will be available at (https://concerthubapp.azurewebsites.net/)
@@ -99,7 +99,7 @@ After some minutes the application will be available at (https://concerthubapp.a
 GitHub actions have been chosen over GitLab CI/CD feature because they are more simple to manage while offering similar functionalities. The original plan for building the CI/CD pipeline for this project was to use GitLab CI/CD functionality, but after encountering some major problems with the configuration of the docker-compose stage I decided to migrate the project on HitGub.
 
 <p align="center">
-<img src="images/gitlab-fail.png" alt="drawing" width="500"/>
+<img src="report/images/gitlab-fail.png" alt="drawing" width="500"/>
 </p>
 
 The main problem with GitLab is that in some cases it requires to configure a local runner for the jobs of the pipeline. For example when configuring a job for building the docker images we need to have a docker image running on top of the docker image of the runner (a docker in docker). In order to use the docker daemon inside another docker some particular configuration has to be done to register a new runner which must run on the local machine in order to be used. For this reason, and for the simplicity on the configuration I have chosen GitHub over GitLab for the CI/CD pipeline.
