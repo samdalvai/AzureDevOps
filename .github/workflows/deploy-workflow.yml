@@ -24,20 +24,16 @@ jobs:
       - name: Check that composer is installed
         run: composer --version
 
-       # Check composer version
-      - name: Cd into the app folder
-        run: |
-          cd app
-          ls
-
       # Install dependencies for testing
       - name: Install PHPUnit dependencies
-        run: composer require --dev phpunit/phpunit
+        run: |
+          cd app
+          composer require --dev phpunit/phpunit
 
       # Run the unit tests
       - name: Test php application
         run: |
-          ls
+          cd app
           ./vendor/bin/phpunit test
 
   ######################################################################
