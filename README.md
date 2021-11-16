@@ -162,4 +162,4 @@ This application is deployed using [Microsoft Azure](https://azure.microsoft.com
 
 # Notes
 
-The web application used in the scope of this project has been developed as a final project for the course `Web and Internet Engineering` in the academic year 2020/21, see the original version of this project at the GitLab [project page](https://gitlab.inf.unibz.it/Tedi.Ibershimi/web-engineering-csmontali6).
+The web application used in the scope of this project has been developed as a final project for the course `Web and Internet Engineering` in the academic year 2020/21, see the original version of this project at the GitLab [project page](https://gitlab.inf.unibz.it/Tedi.Ibershimi/web-engineering-csmontali6)
