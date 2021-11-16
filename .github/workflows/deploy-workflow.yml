@@ -24,6 +24,12 @@ jobs:
       - name: Check that composer is installed
         run: composer --version
 
+       # Check composer version
+      - name: Cd into the app folder
+        run: |
+          cd app
+          ls
+
 
   ######################################################################
   #### This job is responsible for building and pushing the docker  ####
