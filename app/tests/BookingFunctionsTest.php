@@ -106,3 +106,5 @@ final class BookingFunctionsTest extends TestCase
     }
 
 }
+
+?>
