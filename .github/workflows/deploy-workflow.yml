@@ -2,8 +2,7 @@ name: CI/CD pipeline
 
 on:
   push:
-    #branches: [ main ]
-    branches: [ feature/test-framework ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
