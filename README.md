@@ -61,6 +61,12 @@ By following the "Infrastructure as Code" philosophy, the whole creation and des
 
 This project makes use of GitHub Actions in order to run an automatic pipeline for the deployment of the web application to the [Microsoft Azure](https://azure.microsoft.com/en-us/) cloud service provider. If you wish to deploy the application manually you can follow the [instructions for manual deployment](#instructions-for-manual-deployment).
 
+
+<p align="center">
+<img src="report/diagrams/pipeline.png" alt="drawing"/>
+</p>
+
+
 ## Pipeline stages
 
 The pipeline for the continuous integration and development of this application consists in three main stages, namely the testing of the php application, the update of the docker images and the deployment with terraform. Each is stage is dependent on the success of the previous one, thus it can not be executed in case of a failure of a previous stage.
