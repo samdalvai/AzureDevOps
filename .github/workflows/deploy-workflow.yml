@@ -107,10 +107,10 @@ jobs:
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
     
-    # Checks that all Terraform configuration files adhere to a canonical format
+    # Formats the Terraform configuration and lists the files containing formatting inconsistencies. 
     - name: Terraform Format
       id: fmt
-      run: terraform fmt -check
+      run: terraform fmt
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
