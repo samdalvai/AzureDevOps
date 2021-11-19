@@ -123,7 +123,7 @@ The main problem with GitLab is that in some cases it requires to configure a lo
 
 ## Note on Webhooks
 
-The infrastructure is configured in order to create a Web Application with continuous deployment enabled. To make the application responsive to changes in the docker images the manual configuration of a webhook for the docker images on `DockerHub` is needed, see [instructions](https://docs.docker.com/docker-hub/webhooks/) here. The `URL` for the webhook can be found under the `Deployment Center` of the Azure Web App or can be extracted from the `az cli` command line by using the command `az webapp deployment container config --enable-cd true --name concertHubApp --resource-group CHResourceGroup --query `.
+The infrastructure is configured in order to create a Web Application with continuous deployment enabled. To make the application responsive to changes in the docker images the manual configuration of a webhook for the docker images on `DockerHub` is needed, see [instructions](https://docs.docker.com/docker-hub/webhooks/) here. The `URL` for the webhook can be found under the `Deployment Center` of the Azure Web App or can be extracted from the `az cli` command line by using the command `az webapp deployment container config --enable-cd true --name concertHubApp --resource-group CHResourceGroup --query "CI_CD_URL"`.
 
 <p align="center">
 <img src="report/images/webhook.png" alt="drawing" width="500"/>
