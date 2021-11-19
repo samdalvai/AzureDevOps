@@ -121,6 +121,14 @@ GitHub actions have been chosen over GitLab CI/CD feature because they are more 
 
 The main problem with GitLab is that in some cases it requires to configure a local runner for the jobs of the pipeline. For example when configuring a job for building the docker images we need to have a docker image running on top of the docker image of the runner (a docker in docker). In order to use the docker daemon inside another docker some particular configuration has to be done to register a new runner which must run on the local machine in order to be used. For this reason, and for the simplicity on the configuration I have chosen GitHub over GitLab for the CI/CD pipeline.
 
+## Note on Webhooks
+
+The infrastructure is configured in order to create a Web Application with continuous deployment enabled. To make the application responsive to changes in the docker images the manual configuration of a webhook for the docker images on `DockerHub` is needed, see [instructions](https://docs.docker.com/docker-hub/webhooks/) here. The `URL` for the webhook can be found under the `Deployment Center` of the Azure Web App or can be extracted from the `az cli` command line by using the command `az webapp deployment container config --enable-cd true --name concertHubApp --resource-group CHResourceGroup --query `.
+
+<p align="center">
+<img src="report/images/webhook.png" alt="drawing" width="500"/>
+</p>
+
 <br>
 
 # Instructions for manual deployment
