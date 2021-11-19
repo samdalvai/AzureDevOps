@@ -1,5 +1,7 @@
 # Project for the System Engineering course 2021/22
 
+## Table of contents
+
 * [Application description](#application-description)
 * [How the application is deployed](#how-the-application-is-deployed)
 * [Description of the pipeline for CI/CD](#description-of-the-pipeline-for-CI/CD)
@@ -8,6 +10,7 @@
     * [Update of the docker images](#update-of-the-docker-images)
     * [Deployment with terraform](#deployment-with-terraform)
     * [Experience with GitLab CI/CD](#instructions-for-manual-deployment)
+    * [Note on Webhooks](#note-on-webhooks)
 * [Instructions for manual deployment](#instructions-for-manual-deployment)
 * [Author](#author)
 * [Notes](#notes)
