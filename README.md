@@ -1,6 +1,9 @@
 # Project for the System Engineering course 2021/22
 
-## Table of contents
+Bachelor in Computer Science, 3rd Year, at the Free University of Bolzano
+
+
+## Table of Contents
 
 * [Application description](#application-description)
 * [How the application is deployed](#how-the-application-is-deployed)
