@@ -48,6 +48,10 @@ module "web_app_container" {
 
   name = var.web_app_container_name
 
+  app_settings = {
+    "DOCKER_ENABLE_CI" = "true"
+  }
+  
   start_time_limit = 600
 
   container_type = "compose"
