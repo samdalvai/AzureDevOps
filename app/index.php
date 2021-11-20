@@ -8,7 +8,7 @@ include_once './queries/homepage_queries.php';
 
 <section class="wallpaper">
     <img class="img-responsive" src="./images/home/concert.jpg" alt="Snow" style="width:100%;">
-    <div class="centered text-large line-height-220"><b class="logo-style-left wallpaper-logo">The best</b> <b class="logo-style-right wallpaper-logo">live
+    <div class="centered text-large line-height-220"><b class="logo-style-left wallpaper-logo">The best live
             events</b></div>
 </section>
 
