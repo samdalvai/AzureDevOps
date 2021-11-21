@@ -11,7 +11,7 @@ while(1):
         populateDB()
         print("Scheduled job finished, next job in 10 minutes..")
         print()
-        time.sleep(600)
+        time.sleep(1800)
     except:
         print("Connection not available, retrying in 5 seconds...")
         time.sleep(5)
