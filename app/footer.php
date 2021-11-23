@@ -9,7 +9,7 @@
     </div>
     <div class="text-center p-3">
         © 2021 Copyright <br> Ltd - Bolzano (IT)<br>
-        <a class="text-white" href="mailto:concerthub603@gmail.com"> concerthub603@gmail.com</a>
+        <a class="text-white" href="mailto:concerthub88@gmail.com">concerthub88@gmail.com</a>
     </div>
 </footer>
 </body>
