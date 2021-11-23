@@ -53,11 +53,19 @@ The web application is deployed as a Docker multi-container app on [Microsoft Az
 * **concerthub_mysql** container: a `mysql:5.7` docker image with an sql schema that is loaded on startup. The loaded schema will add a concert database with tables for concerts, categories, perfomers and all the tables needed from the web application.
 * **concerthub_python** container: a `python:3` docker image with additional components such as `mysqlclient` and `mysql-connector-python` for the connection to the `mysql` container. On startup this container will load a python script that will run a scheduled job every 10 minutes. The only job that is run consists in queryng the [SeatGeek API](https://platform.seatgeek.com/) and loading the data on the `mysql` database.
 
+<p align="center">
+<img src="report/images/multi-container.png" alt="drawing" width="450"/>
+</p>
+
 As stated above, the application is deployed on [Microsoft Azure](https://azure.microsoft.com/en-us/). The infrastructure on top of which the application is running consists in the following components:
 
 * A **Resource Group** with location "North Europe".
 * An **App Service Plan** with location "North Europe" running on a Linux OS and `Basic` pricing tier `B1` for reduced cost. Running the application on the `Free` tier allows the testing of the application without any charge, but the application will not be stable and will be restarted often.
 * A **Web App Service** running on Docker Container of type Compose that retrieves the latest docker images from DockerHub.
+
+<p align="center">
+<img src="report/images/infrastructure.png" alt="drawing" width="450"/>
+</p>
 
 By following the "Infrastructure as Code" philosophy, the whole creation and destruction of the infrastructure is managed by using of [Terraform](https://www.terraform.io/). In order to make the process of building the infrastructure more easy, and also later on to allow an automatic pipeline to manage this process, the Terraform state is not stored locally, but rather on a remote Terraform repository. See [store remote state with terraform](https://www.terraform.io/) for more information.
 
