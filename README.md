@@ -194,7 +194,6 @@ This application is deployed using [Microsoft Azure](https://azure.microsoft.com
 
 # Author
 **Name**: Samuel Dalvai <br>
-**Student Id**: 17682 <br>
 **Email**: samdalvai@unibz.it <br>
 
 <br>
