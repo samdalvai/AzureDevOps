@@ -9,7 +9,7 @@ while(1):
     print("Scheduled job : " + str(datetime.now()))
     try:
         populateDB()
-        print("Scheduled job finished, next job in 10 minutes..")
+        print("Scheduled job finished, next job in 30 minutes..")
         print()
         time.sleep(1800)
     except:
