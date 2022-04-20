@@ -3,7 +3,7 @@
 describe('Tests for the search bar', () => {
   
     it('should use the search bar from the home page', () => {
-      cy.visit('https://concerthubapp.azurewebsites.net/index.php');
+      cy.visit('http://localhost:8080/index.php');
 
 
       /* ==== Generated with Cypress Studio ==== */
