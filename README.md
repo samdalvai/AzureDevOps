@@ -46,6 +46,10 @@ The user will then be able to print the confirmation and will also receive a con
 
 <br>
 
+# Application demo
+
+A demo version of the web application is available at the following address: https://concerthubapp.azurewebsites.net/. Please keep in mind that the application is deployed as a free demonstration, thus it will not be always available online.
+
 # How the application is deployed
 
 The web application is deployed as a Docker multi-container app on [Microsoft Azure](https://azure.microsoft.com/en-us/). There are a total of three containers:
