@@ -6,6 +6,7 @@ Bachelor in Computer Science, 3rd Year, at the Free University of Bolzano
 ## Table of Contents
 
 * [Application description](#application-description)
+* [Application demo](#application-demo)
 * [How the application is deployed](#how-the-application-is-deployed)
 * [Description of the pipeline for CI/CD](#description-of-the-pipeline-for-CI/CD)
     * [Pipeline stages](#pipeline-stages)
